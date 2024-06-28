@@ -3,18 +3,12 @@ Inventory = {}
 Total_sales = 0
 
 
-def buy_item(name,quantity):
+def change_price(name,new_price):
         if name in Inventory:
-            if Inventory[name]['count'] >= quantity:
-                Inventory[name]['count'] -=quantity
-                total_price = Inventory[name]['price'] * quantity
-                global Total_sales
-                Total_sales += total_price
-                print(f"{quantity} {name}(s) bough succesfully for ${total_price:.2f}.")
-            else:
-                print("Insufficient stock of '{}',".format(name))
+            Inventory[name]['price'] = new_price
+            print('price of ' + name + ' changed to $' +str(new_price))
         else:
-            print("Item '{}' not found in invenory.".format(name))
+            print(name + "not found in inventory")
  
      
             
