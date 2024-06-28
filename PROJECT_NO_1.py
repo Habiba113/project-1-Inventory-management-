@@ -3,11 +3,12 @@ Inventory = {}
 Total_sales = 0
 
 
-def display_inventory():
-        print('Current inventory')
-        for items, details in Inventory.items():
-            print(f'{items}: ${details['price']}*{details['count']}')
-            print(f'Total sales:${Total_sales}') 
+def update_inventory(name,new_count):
+        if name in Inventory:
+            Inventory[name]['count']=new_count
+            print("Inventory count of item '{}' updated to {}.".format(name,new_count))
+        else:
+            print("Item '{}'not found in inventory".format(name))
             
             
                  
